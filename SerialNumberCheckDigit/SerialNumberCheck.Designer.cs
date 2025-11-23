@@ -1,6 +1,6 @@
 ﻿namespace SerialNumberCheckDigit
 {
-    partial class Form1
+    partial class SerialNumberCheck
     {
         /// <summary>
         /// Required designer variable.

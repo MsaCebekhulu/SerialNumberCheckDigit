@@ -12,9 +12,9 @@ using System.Drawing;
 
 namespace SerialNumberCheckDigit
 {
-    public partial class Form1 : Form
+    public partial class SerialNumberCheck : Form
     {
-        public Form1()
+        public SerialNumberCheck()
         {
             InitializeComponent();
             txtSerial.Focus();
