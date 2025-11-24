@@ -21,17 +21,21 @@ namespace SerialNumberCheckDigit
 
         }
 
+        // Validates the serial number and starts the check digit calculation process.
+        // Ensures that exactly 8 numeric characters are provided before processing.
         private void btnCalculate_Click(object sender, EventArgs e)
-        {
+        { 
             lstIterations.Items.Clear();
             lblResult.Text = "Check Digit:";
-
+            
             string input = txtSerial.Text.Trim();
-
+           
             if (input.Length != 8 || !input.All(char.IsDigit))
             {
                 MessageBox.Show("Please enter exactly 8 numeric digits.", "Invalid Input",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+             
                 pnlStatus.BackColor = Color.Red;
 
                 return;
@@ -48,6 +52,8 @@ namespace SerialNumberCheckDigit
             lblResult.Text = "Check Digit: " + result;
         }
 
+
+        // Performs the check digit calculation by repeatedly adding consecutive digits
         private int CalculateCheckDigit(List<int> digits)
         {
             pnlStatus.BackColor = Color.Green;
@@ -73,12 +79,14 @@ namespace SerialNumberCheckDigit
             return digits[0];
         }
 
+        // Prevents non-numeric characters from being entered into the serial number textbox.
         private void txtSerial_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
         }
 
+        // Automatically triggers the check digit calculation once 8 digits have been entered.
         private void txtSerial_TextChanged(object sender, EventArgs e)
         {
             if (txtSerial.Text.Length == 8)
@@ -93,6 +101,7 @@ namespace SerialNumberCheckDigit
 
         }
 
+        // Clears all user input, resets the form to its default state
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtSerial.Clear();
@@ -102,6 +111,7 @@ namespace SerialNumberCheckDigit
             txtSerial.Focus();
         }
 
+        // Toggles between light mode and dark mode for improved user experience
         private void chkDarkMode_CheckedChanged(object sender, EventArgs e)
         {
             if (chkDarkMode.Checked)
