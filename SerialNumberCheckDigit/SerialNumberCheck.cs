@@ -21,8 +21,8 @@ namespace SerialNumberCheckDigit
 
         }
 
-        // Validates the serial number and starts the check digit calculation process.
-        // Ensures that exactly 8 numeric characters are provided before processing.
+        //Validates the serial number and starts the check digit calculation process.
+        //Ensures that exactly 8 numeric characters are provided before processing.
         private void btnCalculate_Click(object sender, EventArgs e)
         { 
             lstIterations.Items.Clear();
